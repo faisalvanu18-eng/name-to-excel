@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Records</title>
+  <style>
+    body{font-family:Arial, sans-serif; background:#f5f6fa; margin:0; padding:20px;}
+    .wrap{max-width:900px; margin:0 auto;}
+    h2{margin:10px 0 15px;}
+    table{width:100%; border-collapse:collapse; background:#fff; border-radius:12px; overflow:hidden; box-shadow:0 10px 25px rgba(0,0,0,.08);}
+    th,td{padding:12px; border-bottom:1px solid #eee; text-align:left;}
+    th{background:#111827; color:#fff;}
+    tr:last-child td{border-bottom:none;}
+    a{display:inline-block; margin:10px 0 0; text-decoration:none; color:#2563eb;}
+    .empty{padding:16px; background:#fff; border-radius:12px;}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h2>Saved Records</h2>
+
+    {% if rows and rows|length > 0 %}
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Date</th>
+            <th>Time</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for r in rows %}
+            <tr>
+              <td>{{ r[0] }}</td>
+              <td>{{ r[1] }}</td>
+              <td>{{ r[2] }}</td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    {% else %}
+      <div class="empty">No records yet.</div>
+    {% endif %}
+
+    <a href="/">← Back</a>
+  </div>
+</body>
+</html>
